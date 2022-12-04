@@ -38,13 +38,3 @@ for(let i = 0; i<values.length; i++){
 //print answer
 console.log("Part 1 answer = ", topThree[0]);
 console.log("Part 2 answer = ", topThree[0] + topThree[1] + topThree[2]);
-
-
-
-
-
-
-
-//const splitData = input.split("/n");
-
-//console.log(splitData);
