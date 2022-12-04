@@ -1,14 +1,14 @@
+//read input
 var fs = require('fs');
 
-//read input
 const input = fs.readFileSync('input.txt','utf8',function(err,data){
-    console.log(typeof input);
     return data;
 })
 
 //format input
 const values = input.split("\r\n");
 
+//store variables
 let result = 0;
 let tally = 0;
 
@@ -24,6 +24,7 @@ for(let i = 0; i<values.length; i++){
     }
 }
 
+//print answer
 console.log("result = ", result);
 
 
