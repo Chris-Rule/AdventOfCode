@@ -9,23 +9,35 @@ const input = fs.readFileSync('input.txt','utf8',function(err,data){
 const values = input.split("\r\n");
 
 //store variables
-let result = 0;
+let topThree = [0,0,0];
 let tally = 0;
 
-//find highest weight
+//tally weights
 for(let i = 0; i<values.length; i++){
     if(values[i] != ""){
         tally += parseInt(values[i],10);
     } else {
-        if(tally > result){
-            result = tally;
+        if(tally > topThree[2]){
+            if(tally > topThree[1]){
+                if(tally > topThree[0]){ //new highest found
+                    topThree[2] = topThree[1];
+                    topThree[1] = topThree[0];
+                    topThree[0] = tally;
+                } else { //new second highest found
+                    topThree[2] = topThree[1];
+                    topThree[1] = tally;
+                }
+            } else { //new third highest found
+                topThree[2] = tally;
+            }
         }
         tally = 0;
     }
 }
 
 //print answer
-console.log("result = ", result);
+console.log("Part 1 answer = ", topThree[0]);
+console.log("Part 2 answer = ", topThree[0] + topThree[1] + topThree[2]);
 
 
 
